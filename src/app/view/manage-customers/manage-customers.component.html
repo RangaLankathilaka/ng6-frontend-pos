@@ -1,0 +1,52 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Manage Customers</h1>
+</div>
+<div class="row">
+  <div class="col col-6">
+    <p class="form-group">
+      <label>Customer ID</label>
+      <input class="form-control" type="text"  [(ngModel)]="customer.id" (keyup)="inspectID($event)" >
+    </p>
+    <p class="form-group">
+      <label>Customer Name</label>
+      <input class="form-control" type="text" [(ngModel)]="customer.name">
+    </p>
+    <p class="form-group">
+      <label>Customer Address</label>
+      <input class="form-control" type="text" [(ngModel)]="customer.address">
+    </p>
+    <p>
+      <!--<button #btnSave (click)="saveCustomer()" class="btn btn-primary">Save</button>-->
+      <button (click)="saveCustomer()" class="btn btn-primary">{{btnName}}</button>
+    </p>
+    <hr>
+    <h4>Search Customer</h4>
+    <p class="form-group">
+      <label>Enter Customer Name</label>
+      <input class="form-control" type="text" (input)="search($event)">
+    </p>
+  </div>
+  <div class="col col-6">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers" (click)="selectCustomer(customer)">
+          <td>{{customer.id}}</td>
+          <td>{{customer.name}}</td>
+          <td>{{customer.address}}</td>
+          <td>
+            <i (click)="deleteCustomer(customer.id)" class="fas fa-2x fa-trash-alt"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

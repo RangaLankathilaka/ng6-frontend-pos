@@ -1,0 +1,11 @@
+table tbody tr:hover{
+  cursor: pointer;
+}
+
+table tbody tr td:last-child{
+  text-align: center;
+}
+
+table tbody tr td:last-child:hover{
+  color: red;
+}
